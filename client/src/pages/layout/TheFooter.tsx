@@ -1,7 +1,5 @@
-import React from "react";
-
 const TheFooter = () => {
-  return <div>TheFooter</div>;
+  return <footer>1</footer>;
 };
 
 export default TheFooter;
