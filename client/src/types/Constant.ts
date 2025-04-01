@@ -19,3 +19,9 @@ export type Hit = {
   price: number;
   categories: HitCategorie[];
 };
+
+export type Gallery = {
+  id: number;
+  title: string;
+  img: string;
+};

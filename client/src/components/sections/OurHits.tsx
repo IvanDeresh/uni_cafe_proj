@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { hits } from "../../constant";
 
 const OurHits = () => {

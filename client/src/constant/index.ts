@@ -1,6 +1,8 @@
 import {
+  barista,
   brakfest_hit,
   breakfest,
+  cafe_at_night,
   cappucino_hit,
   cheescake_hit,
   coffee,
@@ -12,11 +14,12 @@ import {
   lactose_free,
   latte_vanilla,
   matcha,
+  outdoor,
   plant_coffee,
   sandwich,
   top,
 } from "../assets/img";
-import { Blog, Hit } from "../types/Constant";
+import { Blog, Gallery, Hit } from "../types/Constant";
 
 export const blogs: Blog[] = [
   {
@@ -154,5 +157,58 @@ export const hits: Hit[] = [
       { title: "breakfest", icon: breakfest },
       { title: "dinner", icon: dinner },
     ],
+  },
+];
+
+export const gallery: Gallery[] = [
+  {
+    id: 1,
+    title: "Morning Coffee Vibes",
+    img: cappucino_hit,
+  },
+  {
+    id: 2,
+    title: "Freshly Baked Croissants",
+    img: crossaint_hit,
+  },
+  {
+    id: 3,
+    title: "Cozy Café Atmosphere",
+    img: latte_vanilla,
+  },
+  {
+    id: 4,
+    title: "Delicious Breakfast Combo",
+    img: brakfest_hit,
+  },
+  {
+    id: 5,
+    title: "Barista in Action",
+    img: barista,
+  },
+  {
+    id: 6,
+    title: "Outdoor Seating Area",
+    img: outdoor,
+  },
+  {
+    id: 7,
+    title: "Homemade Cheesecake",
+    img: cheescake_hit,
+  },
+  {
+    id: 8,
+    title: "Refreshing Summer Drinks",
+    img: matcha,
+  },
+  {
+    id: 9,
+    title: "Perfectly Brewed Espresso",
+    img: espresso,
+  },
+  {
+    id: 10,
+    title: "Cafe at Night",
+    img: cafe_at_night,
   },
 ];

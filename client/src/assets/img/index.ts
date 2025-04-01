@@ -19,8 +19,14 @@ import frenchtost_hit from "./french-toast-with-caramelized-apples-breakfast.jpg
 import sandwich from "./tasty-sandwich-with-vegetables-ham-cheese.jpg";
 import matcha from "./spa-still-life-with-natural-elements.jpg";
 import espresso from "./white-cup-with-fragrant-strong-espresso-coffee-with-thick-foam-traditional-greek-coffee-shop-top-view-coffee-with-saucer-gray-marble-table-idea-background-poster.jpg";
+import barista from "./завантаження.jpg";
+import outdoor from "./outdoor.jpg";
+import cafe_at_night from "./cafe_at_night.jpg";
 
 export {
+  cafe_at_night,
+  outdoor,
+  barista,
   sandwich,
   matcha,
   espresso,
