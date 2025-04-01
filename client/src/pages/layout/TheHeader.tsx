@@ -5,7 +5,9 @@ const TheHeader = () => {
   return (
     <header className="font-nunito text-green-400 text-md font-medium flex items-center py-5 px-2.5">
       <div className="w-1/5 flex justify-center">
-        <img src={main_icon} alt="logo" className="w-10 h-10" />
+        <Link to="/">
+          <img src={main_icon} alt="logo" className="w-10 h-10" />
+        </Link>
       </div>
       <nav className="flex w-3/5">
         <ul className="flex w-[100%] justify-evenly items-center">
