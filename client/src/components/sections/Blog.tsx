@@ -2,10 +2,10 @@ import { blogs } from "../../constant";
 
 const Blog = () => {
   return (
-    <section className="mt-5  flex flex-col">
+    <section className="mt-36  flex flex-col ">
       <div className="flex flex-col items-center">
         {" "}
-        <h2 className="text-green-500 text-3xl font-bold mb-10 mt-24">Blogs</h2>
+        <h2 className="text-green-500 text-3xl font-bold mb-10">Blogs</h2>
         <ul className="flex justify-between gap-5">
           {blogs.map((el) => {
             return (

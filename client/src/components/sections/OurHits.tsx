@@ -3,10 +3,8 @@ import { hits } from "../../constant";
 
 const OurHits = () => {
   return (
-    <section className="mt-5 flex flex-col justify-center items-center">
-      <h2 className="text-green-500 text-3xl font-bold mb-10 mt-24">
-        Our Hits!
-      </h2>
+    <section className="mt-36 flex flex-col justify-center items-center">
+      <h2 className="text-green-500 text-3xl font-bold mb-10">Our Hits!</h2>
 
       <ul
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 transition-all duration-500 `}

@@ -1,6 +1,7 @@
 import Blog from "../components/sections/Blog";
 import Hero from "../components/sections/Hero";
 import OurHits from "../components/sections/OurHits";
+import Subscribe from "../components/sections/Subscribe";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <OurHits />
       <Blog />
+      <Subscribe />
     </div>
   );
 };
