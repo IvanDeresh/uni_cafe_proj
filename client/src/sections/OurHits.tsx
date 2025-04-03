@@ -1,4 +1,4 @@
-import { hits } from "../../constant";
+import { hits } from "../constant";
 import { Link } from "react-router-dom";
 import OurHitsItem from "./components/OurHitsItem";
 const OurHits = () => {

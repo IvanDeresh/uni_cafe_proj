@@ -1,4 +1,4 @@
-import { BlogItemType } from "../../../types/Props";
+import { BlogItemType } from "../../types/Props";
 
 const BlogItem = ({ title, desc, author, date, icon }: BlogItemType) => {
   return (

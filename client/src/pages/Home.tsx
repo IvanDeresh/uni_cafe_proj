@@ -1,7 +1,7 @@
-import Blog from "../components/sections/Blog";
-import Hero from "../components/sections/Hero";
-import OurHits from "../components/sections/OurHits";
-import Subscribe from "../components/sections/Subscribe";
+import Blog from "../sections/Blog";
+import Hero from "../sections/Hero";
+import OurHits from "../sections/OurHits";
+import Subscribe from "../sections/Subscribe";
 
 const Home = () => {
   return (

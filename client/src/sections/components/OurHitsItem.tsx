@@ -1,4 +1,4 @@
-import { OurHitsItemType } from "../../../types/Props";
+import { OurHitsItemType } from "../../types/Props";
 
 const OurHitsItem = ({
   id,

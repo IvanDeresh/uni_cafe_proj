@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../Button";
+import Button from "../components/Button";
 import SubscribePart from "./components/SubscribePart";
 
 const Subscribe = () => {
