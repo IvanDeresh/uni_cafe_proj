@@ -52,8 +52,9 @@ export const hits: Hit[] = [
     name: "Classic Croissant",
     description: "Flaky, buttery, and freshly baked every morning.",
     price: 3.5,
+    quantity: 1,
     categories: [
-      { title: "hit", icon: top },
+      { title: "hits", icon: top },
       { title: "dinner", icon: dinner },
     ],
   },
@@ -63,8 +64,9 @@ export const hits: Hit[] = [
     name: "Cappuccino",
     description: "A perfect balance of espresso, steamed milk, and foam.",
     price: 4.0,
+    quantity: 1,
     categories: [
-      { title: "breakfest", icon: breakfest },
+      { title: "breakfast", icon: breakfest },
       { title: "without lactose", icon: lactose_free },
     ],
   },
@@ -74,9 +76,10 @@ export const hits: Hit[] = [
     name: "Breakfast Combo",
     description: "Includes a croissant, scrambled eggs, and a cup of coffee.",
     price: 8.5,
+    quantity: 1,
     categories: [
-      { title: "hit", icon: top },
-      { title: "breakfest", icon: breakfest },
+      { title: "hits", icon: top },
+      { title: "breakfast", icon: breakfest },
     ],
   },
   {
@@ -85,6 +88,7 @@ export const hits: Hit[] = [
     name: "New York Cheesecake",
     description: "Rich and creamy with a graham cracker crust.",
     price: 5.5,
+    quantity: 1,
     categories: [
       { title: "dinner", icon: dinner },
       { title: "without lactose", icon: lactose_free },
@@ -96,9 +100,10 @@ export const hits: Hit[] = [
     name: "Vanilla Latte",
     description: "Smooth espresso with steamed milk and vanilla syrup.",
     price: 4.5,
+    quantity: 1,
     categories: [
-      { title: "hit", icon: top },
-      { title: "breakfest", icon: breakfest },
+      { title: "hits", icon: top },
+      { title: "breakfast", icon: breakfest },
       { title: "without lactose", icon: lactose_free },
     ],
   },
@@ -108,8 +113,9 @@ export const hits: Hit[] = [
     name: "French Toast",
     description: "Golden brown toast served with syrup and berries.",
     price: 6.0,
+    quantity: 1,
     categories: [
-      { title: "breakfest", icon: breakfest },
+      { title: "breakfast", icon: breakfest },
       { title: "dinner", icon: dinner },
     ],
   },
@@ -119,8 +125,9 @@ export const hits: Hit[] = [
     name: "Matcha Latte",
     description: "A creamy blend of matcha green tea and milk.",
     price: 4.8,
+    quantity: 1,
     categories: [
-      { title: "hit", icon: top },
+      { title: "hits", icon: top },
       { title: "without lactose", icon: lactose_free },
     ],
   },
@@ -131,9 +138,10 @@ export const hits: Hit[] = [
     description:
       "Grilled chicken, avocado, lettuce, and sauce in ciabatta bread.",
     price: 7.0,
+    quantity: 1,
     categories: [
       { title: "dinner", icon: dinner },
-      { title: "breakfest", icon: breakfest },
+      { title: "breakfast", icon: breakfest },
     ],
   },
   {
@@ -142,8 +150,9 @@ export const hits: Hit[] = [
     name: "Double Espresso",
     description: "A strong, rich shot of espresso for coffee lovers.",
     price: 3.0,
+    quantity: 1,
     categories: [
-      { title: "hit", icon: top },
+      { title: "hits", icon: top },
       { title: "without lactose", icon: lactose_free },
     ],
   },
@@ -153,8 +162,9 @@ export const hits: Hit[] = [
     name: "Berry Smoothie",
     description: "A refreshing mix of strawberries, blueberries, and yogurt.",
     price: 5.2,
+    quantity: 1,
     categories: [
-      { title: "breakfest", icon: breakfest },
+      { title: "breakfast", icon: breakfest },
       { title: "dinner", icon: dinner },
     ],
   },
@@ -254,7 +264,7 @@ export const loyaltyNewsPosts = [
     type: "New Tiers",
     date: "2025-03-29",
   },
-]
+];
 export const categories = [
   { id: 1, label: "breakfast", image: breakfest, alt: "breakfast" },
   { id: 2, label: "hits", image: top, alt: "hits" },
