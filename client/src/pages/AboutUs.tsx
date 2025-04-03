@@ -1,9 +1,4 @@
-import {
-  cafe_at_night,
-  cappucino_hit,
-  cheescake_hit,
-  outdoor,
-} from "../assets/img";
+import { cappucino_hit, cheescake_hit } from "../assets/img";
 
 const AboutUs = () => {
   return (

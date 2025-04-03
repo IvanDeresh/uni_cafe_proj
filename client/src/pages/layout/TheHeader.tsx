@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { main_icon } from "../../assets/img";
+import { cart, main_icon } from "../../assets/img";
 
 const TheHeader = () => {
   return (
@@ -25,12 +25,15 @@ const TheHeader = () => {
           </li>
         </ul>
       </nav>
-      <div className="w-1/5 flex justify-center ">
+      <div className="w-1/5 flex justify-center items-center gap-8">
         <Link
           className="w-36 h-12 border-b-2 text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center"
           to="/sign-in"
         >
           Sign in
+        </Link>
+        <Link to="/cart">
+          <img className="w-10 h-10" src={cart} alt="cart" />
         </Link>
       </div>
     </header>

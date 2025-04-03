@@ -7,7 +7,7 @@ export type Blog = {
 };
 
 type HitCategorie = {
-  title: "hit" | "breakfest" | "dinner" | "without lactose";
+  title: "hits" | "breakfast" | "dinner" | "without lactose";
   icon: string;
 };
 export type Hit = {
@@ -16,6 +16,7 @@ export type Hit = {
   name: string;
   description: string;
   price: number;
+  quantity: number;
   categories: HitCategorie[];
 };
 

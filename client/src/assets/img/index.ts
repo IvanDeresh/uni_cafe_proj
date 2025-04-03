@@ -22,8 +22,10 @@ import espresso from "./white-cup-with-fragrant-strong-espresso-coffee-with-thic
 import barista from "./завантаження.jpg";
 import outdoor from "./outdoor.jpg";
 import cafe_at_night from "./cafe_at_night.jpg";
+import cart from "./shopping-cart_3737372.png";
 
 export {
+  cart,
   cafe_at_night,
   outdoor,
   barista,
