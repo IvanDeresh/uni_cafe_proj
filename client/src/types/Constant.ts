@@ -7,10 +7,9 @@ export type Blog = {
 };
 
 type HitCategorie = {
-  title: string;
+  title: "hit" | "breakfest" | "dinner" | "without lactose";
   icon: string;
 };
-
 export type Hit = {
   id: number;
   image: string;
