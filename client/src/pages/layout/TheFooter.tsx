@@ -19,7 +19,7 @@ const TheFooter = () => {
   }
 
   return (
-    <footer className="bg-[#0A5c36] text-white pt-10 pb-6">
+    <footer className="bg-[#29bd78] text-white pt-10 pb-6">
       <div className="max-w-screen-xl mx-auto px-6 md:flex md:justify-between">
         <div className="flex flex-col gap-5 md:w-2/5">
           <img src={main_icon} alt="logo" className="w-14 h-14 mb-4" />
@@ -27,7 +27,7 @@ const TheFooter = () => {
           <form onSubmit={handleSubmit} className="flex items-center gap-3">
             <input
               placeholder="Enter your email"
-              className="w-64 p-2 rounded-sm outline-none border-2 border-green-500 bg-green-500 text-white"
+              className="w-64 p-2 rounded-sm outline-none border-2 border-[#25bd76] bg-[#3be797] placeholder-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -36,7 +36,7 @@ const TheFooter = () => {
             <Button
               label="Subscribe"
               type="submit"
-              styles="bg-green-500 text-white py-2 px-6 rounded-lg border border-b-2 border-green-600 hover:border-green-700 active:scale-95 hover:bg-green-600 transition duration-300"
+              styles="bg-[#30b477] text-white py-2 px-6 rounded-lg border border-b-2 border-green-600 hover:border-green-700 active:scale-95 hover:bg-[#1f9960] transition duration-300"
             />
           </form>
         </div>
@@ -44,17 +44,20 @@ const TheFooter = () => {
         <div className="flex flex-col gap-5 md:w-1/5 mt-8 md:mt-0">
           <h2 className="text-2xl font-bold">Contact Us</h2>
           <ul className="text-md flex flex-col gap-2">
-            <li>
-              Email:{" "}
+            <li className="flex gap-6">
+              Email:
               <a
                 href="mailto:unicafe@gmail.com"
-                className="text-blue-400 hover:text-blue-500"
+                className="text-green-700 cursor-pointer hover:text-green-900"
               >
                 unicafe@gmail.com
               </a>
             </li>
-            <li>
-              Phone: <span className="text-blue-400">+380 000 00 0000</span>
+            <li className="flex gap-6">
+              Phone:{" "}
+              <span className="text-green-700 cursor-pointer hover:text-green-900">
+                +380 000 00 0000
+              </span>
             </li>
             <li>
               <a
