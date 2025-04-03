@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./pages/layout/Layout";
 import Home from "./pages/Home";
-import Menu from "./pages/Menu";
+import Menu from "./pages/Menu/index";
 import LoyaltyProgram from "./pages/LoyaltyProgram";
 import Gallery from "./pages/Gallery";
 import AboutUs from "./pages/AboutUs";
