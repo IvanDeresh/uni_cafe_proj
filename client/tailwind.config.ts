@@ -2,30 +2,35 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       keyframes: {
         fromRight: {
-          "0%": { transform: "translateX(120%)" },
-          "100%": { transform: "translateX(0)" },
+          "0%": { transform: "translateX(120%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
         },
         fromLeft: {
-          "0%": { transform: "translateX(-120%)" },
-          "100%": { transform: "translateX(0)" },
+          "0%": { transform: "translateX(-120%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
         },
         fromDown: {
-          "0%": { transform: "translateY(250%)" },
-          "100%": { transform: "translateX(0)" },
+          "0%": { transform: "translateY(250%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        fromTop: {
+          "0%": { transform: "translateY(-100%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
         },
       },
       animation: {
-        fromRight: "fromRight 1s ease-in-out 1",
-        fromLeft: "fromLeft 1s ease-in-out 1",
-        fromDown: "fromDown 1s ease-in-out 1",
+        fromRight: "fromRight 0.7s ease-in-out forwards",
+        fromLeft: "fromLeft 0.7s ease-in-out forwards",
+        fromDown: "fromDown 0.7s ease-in-out forwards",
+        fromTop: "fromTop 0.7s ease-in-out forwards",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -41,4 +46,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
