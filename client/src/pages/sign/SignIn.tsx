@@ -55,20 +55,16 @@ const SignIn = () => {
             label="Sign in"
             type="submit"
           />
-          <div className="flex gap-3 mt-2">
+          <div className="flex gap-3 mt-2 text-green-500">
             <Link
               to="/sign-in"
-              className={`${
-                path === "/sign-in" ? "text-green-500" : "text-green-300"
-              }`}
+              className={`flex text-sm justify-center items-center w-14 h-7 rounded-md text-white border border-b-2 border-green-500 bg-green-300`}
             >
               Sign in
             </Link>
-            /
+            |
             <Link
-              className={`${
-                path === "/sign-up" ? "text-green-500" : "text-green-300"
-              }`}
+              className={`flex justify-center text-sm items-center w-14 h-7 rounded-md text-white border border-b-2 border-green-500 bg-green-400`}
               to="/sign-up"
             >
               Sign up
