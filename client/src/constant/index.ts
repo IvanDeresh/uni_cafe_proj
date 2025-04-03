@@ -254,4 +254,15 @@ export const loyaltyNewsPosts = [
     type: "New Tiers",
     date: "2025-03-29",
   },
+]
+export const categories = [
+  { id: 1, label: "breakfast", image: breakfest, alt: "breakfast" },
+  { id: 2, label: "hits", image: top, alt: "hits" },
+  {
+    id: 3,
+    label: "without lactose",
+    image: lactose_free,
+    alt: "without lactose",
+  },
+  { id: 4, label: "dinner", image: dinner, alt: "dinner" },
 ];
