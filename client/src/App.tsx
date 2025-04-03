@@ -7,6 +7,7 @@ import Gallery from "./pages/Gallery";
 import AboutUs from "./pages/AboutUs";
 import SignIn from "./pages/sign/SignIn";
 import SignUp from "./pages/sign/SignUp";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/loyalty-program" element={<LoyaltyProgram />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
