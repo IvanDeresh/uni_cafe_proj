@@ -213,6 +213,48 @@ export const gallery: Gallery[] = [
   },
 ];
 
+export const loyaltyNewsPosts = [
+  {
+    id: 1,
+    title: "🎉 New Feature: Earn Points on Every Purchase!",
+    description:
+      "Now, with every purchase you make in our store, you’ll earn loyalty points that you can redeem for discounts and exclusive offers!",
+    type: "New Feature",
+    date: "2025-04-03",
+  },
+  {
+    id: 2,
+    title: "💥 Flash Sale: Double Points This Weekend!",
+    description:
+      "For this weekend only, earn double points on all purchases! Don’t miss out on the chance to stack up your rewards!",
+    type: "Flash Sale",
+    date: "2025-04-02",
+  },
+  {
+    id: 3,
+    title: "🎁 Exclusive Offer: Free Gift on Your Next Purchase",
+    description:
+      "As a thank you for being a loyal customer, you’ll receive a special gift with your next purchase when you use your loyalty points!",
+    type: "Exclusive Offer",
+    date: "2025-04-01",
+  },
+  {
+    id: 4,
+    title: "🔄 Reward Upgrade: Bigger Discounts with More Points!",
+    description:
+      "We’ve upgraded our loyalty program! The more points you collect, the bigger the discounts you’ll get on your favorite items!",
+    type: "Reward Upgrade",
+    date: "2025-03-30",
+  },
+  {
+    id: 5,
+    title: "🛍️ Buy More, Save More: New Loyalty Tiers Now Available!",
+    description:
+      "We’ve introduced new loyalty tiers! The more you shop, the better the rewards. Unlock exclusive deals as you level up!",
+    type: "New Tiers",
+    date: "2025-03-29",
+  },
+]
 export const categories = [
   { id: 1, label: "breakfast", image: breakfest, alt: "breakfast" },
   { id: 2, label: "hits", image: top, alt: "hits" },
