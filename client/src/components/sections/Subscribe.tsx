@@ -1,11 +1,6 @@
 import { useState } from "react";
 import Button from "../Button";
-import {
-  cappucino_hit,
-  crossaint_hit,
-  latte_vanilla,
-  matcha,
-} from "../../assets/img";
+import SubscribePart from "./components/SubscribePart";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");
@@ -13,40 +8,9 @@ const Subscribe = () => {
   return (
     <section className="flex mt-36 justify-center mb-36  items-center w-full">
       <div className="flex flex-col w-2/3 py-16 shadow-2xl relative  justify-center items-center gap-4 rounded-2xl">
-        <ul className="flex flex-col gap-10 absolute left-8">
-          <div className="flex gap-10">
-            <li>
-              <img
-                src={cappucino_hit}
-                alt="cappucino"
-                className="w-10 h-10 rounded-full"
-              />
-            </li>
-            <li>
-              <img
-                src={crossaint_hit}
-                alt="crossaint"
-                className="w-7 h-7 rounded-full"
-              />
-            </li>
-          </div>
-          <div className="flex gap-10">
-            <li>
-              <img
-                src={latte_vanilla}
-                alt="latte_vanilla"
-                className="w-7 h-7 rounded-full"
-              />
-            </li>
-            <li>
-              <img
-                src={matcha}
-                alt="matcha"
-                className="w-10 h-10 rounded-full"
-              />
-            </li>
-          </div>
-        </ul>
+        <div className="absolute right-8">
+          <SubscribePart />
+        </div>
         <h2 className="text-green-500 text-3xl font-bold">Subscribe</h2>
         <form onSubmit={handleSubmit} action="" className="flex gap-4">
           <input
@@ -64,40 +28,9 @@ const Subscribe = () => {
             type="submit"
           />
         </form>
-        <ul className="flex flex-col gap-10 absolute right-8">
-          <div className="flex gap-10">
-            <li>
-              <img
-                src={cappucino_hit}
-                alt="cappucino"
-                className="w-10 h-10 rounded-full"
-              />
-            </li>
-            <li>
-              <img
-                src={crossaint_hit}
-                alt="crossaint"
-                className="w-7 h-7 rounded-full"
-              />
-            </li>
-          </div>
-          <div className="flex gap-10">
-            <li>
-              <img
-                src={latte_vanilla}
-                alt="latte_vanilla"
-                className="w-7 h-7 rounded-full"
-              />
-            </li>
-            <li>
-              <img
-                src={matcha}
-                alt="matcha"
-                className="w-10 h-10 rounded-full"
-              />
-            </li>
-          </div>
-        </ul>
+        <div className="absolute left-8">
+          <SubscribePart />
+        </div>
       </div>
     </section>
   );

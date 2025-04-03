@@ -43,6 +43,34 @@ export const blogs: Blog[] = [
     author: "Emily Brown",
     date: "2024-03-20",
   },
+  {
+    icon: espresso,
+    title: "Espresso vs. Drip Coffee",
+    desc: "A deep dive into the differences between espresso and drip coffee brewing methods.",
+    author: "Michael Johnson",
+    date: "2024-03-15",
+  },
+  {
+    icon: coffee,
+    title: "The Art of Brewing Coffee",
+    desc: "Discover the secrets of making the perfect cup of coffee at home.",
+    author: "John Doe",
+    date: "2024-04-01",
+  },
+  {
+    icon: latte_vanilla,
+    title: "Mastering Latte Art",
+    desc: "Step up your barista skills with tips on creating beautiful latte art designs.",
+    author: "Sophia Lee",
+    date: "2024-03-10",
+  },
+  {
+    icon: cafe_at_night,
+    title: "How to Choose the Perfect Coffee Shop",
+    desc: "What makes a coffee shop great? Here’s what to look for in your next favorite spot.",
+    author: "David Williams",
+    date: "2024-03-05",
+  },
 ];
 
 export const hits: Hit[] = [
@@ -86,7 +114,8 @@ export const hits: Hit[] = [
     id: 4,
     image: cheescake_hit,
     name: "New York Cheesecake",
-    description: "Rich and creamy with a graham cracker crust.",
+    description:
+      "Rich and creamy with a graham cracker crust graham cracker crust.",
     price: 5.5,
     quantity: 1,
     categories: [
