@@ -8,18 +8,22 @@ const Subscribe = () => {
   return (
     <section className="flex mt-36 justify-center mb-36  items-center w-full">
       <div className="flex flex-col w-2/3 py-16 shadow-2xl relative  justify-center items-center gap-4 rounded-2xl">
-        <div className="absolute right-8">
+        <div className="absolute right-8 max-[68.75rem]:hidden">
           <SubscribePart />
         </div>
         <h2 className="text-green-500 text-3xl font-bold">Subscribe</h2>
-        <form onSubmit={handleSubmit} action="" className="flex gap-4">
+        <form
+          onSubmit={handleSubmit}
+          action=""
+          className="flex gap-4 max-sm:flex-col"
+        >
           <input
             type="email"
             name="subscribe_email"
             placeholder="Subscribe here for benefits"
             value={email}
             required
-            className="w-72 h-10 rounded-md outline-none border-2  border-green-500 pl-4 text-green-500"
+            className="w-72 h-10 rounded-md outline-none border-2 max-sm:w-max max-sm:pr-4 border-green-500 pl-4 text-green-500"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Button
@@ -28,7 +32,7 @@ const Subscribe = () => {
             type="submit"
           />
         </form>
-        <div className="absolute left-8">
+        <div className="absolute left-8 max-[68.75rem]:hidden">
           <SubscribePart />
         </div>
       </div>

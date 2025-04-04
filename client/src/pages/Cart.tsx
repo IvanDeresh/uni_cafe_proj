@@ -24,10 +24,10 @@ const Cart = () => {
   return (
     <div className="min-h-[70vh] mb-40 mt-20 flex flex-col items-center w-full">
       <h2 className="text-3xl uppercase text-green-500 mb-24">Shopping Cart</h2>
-      <div className="flex w-full justify-center">
-        <div className="w-8/10 border-r-4 mr-24 pr-24 border-green-500">
+      <div className="flex w-full justify-center max-[42rem]:flex-col-reverse max-[42rem]:px-20">
+        <div className="w-8/10 border-r-4 mr-24 pr-24 max-xl:w-3/5 max-[42rem]:w-full max border-green-500 max-[42rem]:border-none max-[42rem]:mr-0 max-[42rem]:pr-0">
           {cartItems.items.length === 0 ? (
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center max-[42rem]:mt-10 max-[42rem]:border-t-4 max-[42rem]:border-green-500 max-[42rem]:pt-10">
               <span className="text-2xl flex justify-center font-bold text-green-500">
                 Your cart is empty.
               </span>
@@ -101,7 +101,7 @@ const Cart = () => {
             </ul>
           )}
         </div>
-        <div className="w-2/10">
+        <div className="w-2/10 max-xl:w-2/5 max-[42rem]:w-full max-[42rem]:flex max-[42rem]:flex-col max-[42rem]:justify-center max-[42rem]:items-center">
           <p className="text-xl uppercase text-green-500">
             Total Price: $
             {cartItems.items

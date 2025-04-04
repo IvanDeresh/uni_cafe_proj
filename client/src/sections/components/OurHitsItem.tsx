@@ -17,7 +17,7 @@ const OurHitsItem = ({
   };
   return (
     <li
-      className="w-80 min-h-96 flex cursor-pointer hover:scale-95 transition-all duration-300 flex-col justify-between bg-white shadow-md rounded-xl overflow-hidden"
+      className="w-80 min-h-96 max-[21rem]:w-auto flex cursor-pointer hover:scale-95 transition-all duration-300 flex-col justify-between bg-white shadow-md rounded-xl overflow-hidden"
       key={id}
     >
       <img className="w-full h-60 object-cover" src={image} alt={name} />

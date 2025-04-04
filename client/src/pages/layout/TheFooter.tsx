@@ -24,10 +24,13 @@ const TheFooter = () => {
         <div className="flex flex-col gap-5 md:w-2/5">
           <img src={main_icon} alt="logo" className="w-14 h-14 mb-4" />
           <p className="text-lg">Join our newsletter for the latest updates!</p>
-          <form onSubmit={handleSubmit} className="flex items-center gap-3">
+          <form
+            onSubmit={handleSubmit}
+            className="flex max-[22.5rem]:flex-col items-center gap-3"
+          >
             <input
               placeholder="Enter your email"
-              className="w-64 p-2 rounded-sm outline-none border-2 border-[#25bd76] bg-[#3be797] placeholder-white"
+              className="w-64 p-2 rounded-sm max-[22.5rem]:w-auto outline-none border-2 border-[#25bd76] bg-[#3be797] placeholder-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"

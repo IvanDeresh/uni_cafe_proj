@@ -29,7 +29,7 @@ const SignUp = () => {
     <div className="h-[70vh] flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="border-2 border-green-400 rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[30rem]"
+        className="border-2 border-green-400 max-[25rem]:w-auto rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[30rem]"
         action=""
       >
         <h2 className="text-3xl text-green-400">Sign up</h2>

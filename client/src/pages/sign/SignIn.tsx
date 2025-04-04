@@ -27,7 +27,7 @@ const SignIn = () => {
     <div className="h-[60vh] flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="border-2 border-green-400 rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[25rem]"
+        className="border-2 border-green-400 max-[25rem]:w-auto rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[25rem]"
       >
         <h2 className="text-3xl text-green-400">Sign in</h2>
         <div className="flex flex-col gap-8">
