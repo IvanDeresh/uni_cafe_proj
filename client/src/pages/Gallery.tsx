@@ -11,11 +11,11 @@ const Gallery = () => {
               <div>
                 <img className="w-xl h-xl" src={part.img} alt="img" />
               </div>
-              <div className="text-xl">{part.title}</div>
+              <div className="text-xl uppercase">{part.title}</div>
             </div>
           ) : (
             <div className="flex items-center justify-center gap-64">
-              <div className="text-xl">{part.title}</div>
+              <div className="text-xl uppercase">{part.title}</div>
               <div>
                 <img className="w-xl h-xl" src={part.img} alt="img" />
               </div>

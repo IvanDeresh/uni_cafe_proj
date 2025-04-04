@@ -3,7 +3,7 @@ import {
   crossaint_hit,
   latte_vanilla,
   matcha,
-} from "../../../assets/img";
+} from "../../assets/img";
 
 const SubscribePart = () => {
   return (

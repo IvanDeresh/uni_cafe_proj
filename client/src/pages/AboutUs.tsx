@@ -12,17 +12,24 @@ const AboutUs = () => {
         dream—to create a cozy space where people could escape the rush of
         everyday life and enjoy a perfectly brewed cup of coffee. Our journey
         began with a passion for high-quality ingredients and a love for
-        artisanal baking. From day one, we sourced the finest coffee beans and
-        crafted fresh, homemade pastries to bring a unique experience to every
-        guest who walks through our doors. At Uni Café, we believe that every
-        cup tells a story. Whether you’re here for your morning espresso, an
-        afternoon croissant, or an evening chat with friends, we want you to
-        feel at home. Join us for a moment of warmth, flavor, and
-        community—because great coffee is best enjoyed together. 💛
+        artisanal baking.💙
+      </p>
+      <p className="mt-8 w-[80%] text-green-500">
+        From day one, we sourced the finest coffee beans and crafted fresh,
+        homemade pastries to bring a unique experience to every guest who walks
+        through our doors. At Uni Café, we believe that every cup tells a story.
+        Whether you’re here for your morning espresso, an afternoon croissant,
+        or an evening chat with friends, we want you to feel at home. Join us
+        for a moment of warmth, flavor, and community—because great coffee is
+        best enjoyed together. 💛
       </p>
       <div className="flex gap-24 w-[80%] my-20">
-        <img src={cappucino_hit} alt="cafe at night" className="w-1/2" />
-        <img src={cheescake_hit} alt="outdoor" className="w-1/2" />
+        <img
+          src={cappucino_hit}
+          alt="cafe at night"
+          className="w-1/2 rounded-3xl"
+        />
+        <img src={cheescake_hit} alt="outdoor" className="w-1/2 rounded-3xl" />
       </div>
     </div>
   );

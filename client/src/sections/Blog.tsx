@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { blogs } from "../../constant";
+import { blogs } from "../constant";
 import BlogItem from "./components/BlogItem";
 
 const Blog = () => {

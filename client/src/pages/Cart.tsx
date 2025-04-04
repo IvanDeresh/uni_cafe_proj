@@ -103,7 +103,10 @@ const Cart = () => {
         </div>
         <div className="w-2/10">
           <p className="text-xl uppercase text-green-500">
-            Total Price: ${cartItems.totalPrice.toFixed(2)}
+            Total Price: $
+            {cartItems.items
+              .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+              .toFixed(2)}
           </p>
           <div className="flex gap-4 mt-8">
             <button

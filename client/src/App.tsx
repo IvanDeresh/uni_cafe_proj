@@ -8,6 +8,7 @@ import AboutUs from "./pages/AboutUs";
 import SignIn from "./pages/sign/SignIn";
 import SignUp from "./pages/sign/SignUp";
 import Cart from "./pages/Cart";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
