@@ -1,3 +1,5 @@
+import { Hit } from "./Constant";
+
 export type ButtonProps = {
   label: string;
   styles: string;
@@ -12,3 +14,11 @@ export type BlogItemType = {
   author: string;
   date: string;
 };
+
+export interface MenuItemProps {
+  el: Hit;
+  view: string;
+  hoveredItemId: number | null;
+  setHoveredItemId: React.Dispatch<React.SetStateAction<number | null>>;
+  addToCart: (item: Hit) => void;
+}
