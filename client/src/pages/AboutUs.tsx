@@ -4,7 +4,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center">
       <h2 className="mt-5 text-3xl font-bold text-green-400">About Us</h2>
-      <h3 className="text-xl font-medium text-green-400">
+      <h3 className="text-xl font-medium text-green-400 max-[24rem]:px-2">
         Here’s a little story about Uni Café! ☕
       </h3>
       <p className="mt-8 w-[80%] text-green-500">
@@ -23,13 +23,17 @@ const AboutUs = () => {
         for a moment of warmth, flavor, and community—because great coffee is
         best enjoyed together. 💛
       </p>
-      <div className="flex gap-24 w-[80%] my-20">
+      <div className="flex gap-24 w-[80%] my-20 max-[68.75rem]:flex-col">
         <img
           src={cappucino_hit}
           alt="cafe at night"
-          className="w-1/2 rounded-3xl"
+          className="w-1/2 max-[68.75rem]:w-full  rounded-3xl"
         />
-        <img src={cheescake_hit} alt="outdoor" className="w-1/2 rounded-3xl" />
+        <img
+          src={cheescake_hit}
+          alt="outdoor"
+          className="max-[68.75rem]:w-full w-1/2 rounded-3xl"
+        />
       </div>
     </div>
   );

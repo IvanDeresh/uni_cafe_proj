@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import { cart, main_icon } from "../../assets/img";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const TheHeader = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="font-nunito text-green-400 text-md font-medium flex items-center py-5 px-2.5">
+    <header className="font-nunito max-md:justify-between max-md:pr-8 text-green-400 text-md font-medium flex items-center py-5 px-2.5 relative">
       <div className="w-1/5 flex justify-center">
         <Link to="/">
           <img src={main_icon} alt="logo" className="w-10 h-10" />
         </Link>
       </div>
-      <nav className="flex w-3/5">
+      <nav className="flex w-3/5 max-md:hidden">
         <ul className="flex w-[100%] justify-evenly items-center">
           <li>
             <Link to="/menu">Menu</Link>
@@ -27,15 +31,59 @@ const TheHeader = () => {
       </nav>
       <div className="w-1/5 flex justify-center items-center gap-8">
         <Link
-          className="w-36 h-12 border-b-2 text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center"
+          className="w-36 h-12 border-b-2 max-md:hidden text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center"
           to="/sign-in"
         >
           Sign in
         </Link>
         <Link to="/cart">
-          <img className="w-10 h-10" src={cart} alt="cart" />
+          <img
+            className="min-w-10 min-h-10 w-10 h-10 max-md:min-w-8 max-md:min-h-8 max-md:w-8 max-md:h-8"
+            src={cart}
+            alt="cart"
+          />
         </Link>
+        <button
+          className="md:hidden text-green-500"
+          onClick={() => setMenuOpen((prevState) => !prevState)}
+        >
+          {menuOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
       </div>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden flex flex-col items-center bg-white shadow-lg absolute top-16 left-0 w-full py-5 z-50 animate-fade-in">
+          <ul className="flex flex-col w-full text-center gap-4">
+            <li>
+              <Link to="/menu" onClick={() => setMenuOpen(false)}>
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link to="/gallery" onClick={() => setMenuOpen(false)}>
+                Gallery
+              </Link>
+            </li>
+            <li>
+              <Link to="/loyalty-program" onClick={() => setMenuOpen(false)}>
+                Loyalty Program
+              </Link>
+            </li>
+            <li>
+              <Link to="/about-us" onClick={() => setMenuOpen(false)}>
+                About us
+              </Link>
+            </li>
+          </ul>
+          <Link
+            className="w-36 h-12 border-b-2 text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center mt-4"
+            to="/sign-in"
+            onClick={() => setMenuOpen(false)}
+          >
+            Sign in
+          </Link>
+        </div>
+      )}
     </header>
   );
 };

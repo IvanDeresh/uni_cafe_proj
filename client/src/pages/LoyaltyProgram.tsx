@@ -2,7 +2,7 @@ import { loyaltyNewsPosts } from "../constant";
 
 const LoyaltyProgram = () => {
   return (
-    <div className="min-h-[70vh] mb-24 mt-12 flex flex-col items-center justify-center">
+    <div className="min-h-[70vh] max-xl:px-4 mb-24 mt-12 flex flex-col items-center justify-center">
       <h2 className="text-3xl uppercase text-green-500 mb-24">
         Loyalty Program
       </h2>
