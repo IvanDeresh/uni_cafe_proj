@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { blogs } from "../constant";
 import BlogItem from "./components/BlogItem";
+import ItemSkeleton from "../helpers/skeletons/ItemSkeleton";
 
 const Blog = () => {
   const [currentIndex, setCurrentIndex] = useState(
     Math.floor(blogs.length / 2)
   );
+  const [loading, setLoading] = useState(true);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight") {
@@ -20,6 +22,12 @@ const Blog = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <section className="mt-36 flex flex-col items-center overflow-hidden">
       <h2 className="text-green-500 text-3xl font-bold mb-10">Blogs</h2>
@@ -28,9 +36,11 @@ const Blog = () => {
           className="flex transition-transform gap-20 duration-300"
           style={{ transform: `translateX(-${currentIndex * 62}%)` }}
         >
-          {blogs.map((el, index) => (
-            <BlogItem index={index} {...el} />
-          ))}
+          {loading
+            ? Array.from({ length: blogs.length }).map((_, index) => (
+                <ItemSkeleton key={index} />
+              ))
+            : blogs.map((blog, index) => <BlogItem index={index} {...blog} />)}
         </ul>
       </div>
       <ul className="flex gap-2 mt-12 items-center">

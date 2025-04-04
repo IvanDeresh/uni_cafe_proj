@@ -21,9 +21,9 @@ public class SecurityConfig
    
         http
             .authorizeRequests()
-                .requestMatchers("/**").permitAll()  // Використовуємо requestMatchers замість antMatchers
+                .requestMatchers("/**").permitAll()  
             .and()
-            .csrf().disable();  // Вимикаємо CSRF захист, якщо це необхідно для вашого випадку
+            .csrf().disable();  
         return http.build();
     }
 }
