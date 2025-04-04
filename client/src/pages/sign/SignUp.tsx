@@ -1,23 +1,34 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const navigation = useNavigate();
-  let path = window.location.pathname;
+  const [username, setUserName] = useState("");
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
 
-  useEffect(() => {
-    path = window.location.pathname;
-  }, []);
-
+    try {
+      const response = await axios.post("http://localhost:8080/auth/register", {
+        email,
+        username,
+        password,
+      });
+      setEmail("");
+      setUserName("");
+      setPassword("");
+      console.log(response);
+      localStorage.setItem("token", response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  }
   return (
     <div className="h-[70vh] flex justify-center items-center">
       <form
+        onSubmit={handleSubmit}
         className="border-2 border-green-400 rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[30rem]"
         action=""
       >
@@ -32,8 +43,8 @@ const SignUp = () => {
               id="#name_signin"
               name="name_signin"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
               placeholder="Joe Doeh"
               className="w-60 border-b border-green-400 text-green-400 outline-none h-10"
             />

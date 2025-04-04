@@ -8,14 +8,17 @@ public class User {
     @Id
     private String id;
     private String username;
+    private String email;
     private String password;
-    private String role; // Наприклад, для ролі користувача
 
     public String getUsername(){
         return this.username;
     }
     public String getPassword(){
         return this.password;
+    }
+    public String getEmail(){
+        return this.email;
     }
     public void setPassword(String password){
         this.password = password;
