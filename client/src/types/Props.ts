@@ -12,11 +12,3 @@ export type BlogItemType = {
   author: string;
   date: string;
 };
-
-export type OurHitsItemType = {
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  id: number;
-};

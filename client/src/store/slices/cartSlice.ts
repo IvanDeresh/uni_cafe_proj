@@ -5,13 +5,11 @@ import { PayloadChangeQuantity } from "../../types/Store";
 interface CartState {
   items: Hit[];
   totalQuantity: number;
-  totalPrice: number;
 }
 
 const initialState: CartState = {
   items: [],
   totalQuantity: 0,
-  totalPrice: 0,
 };
 
 const cartSlice = createSlice({
@@ -29,7 +27,6 @@ const cartSlice = createSlice({
       }
 
       state.totalQuantity++;
-      state.totalPrice += newItem.price;
     },
 
     removeItem(state, action: PayloadAction<number>) {
@@ -38,7 +35,7 @@ const cartSlice = createSlice({
 
       if (existingItem) {
         state.totalQuantity -= 1;
-        state.totalPrice -= existingItem.price;
+
         state.items = state.items.filter((item: Hit) => item.id !== itemId);
       }
     },
@@ -51,15 +48,12 @@ const cartSlice = createSlice({
         if (type === "increase") {
           existingItem.quantity += 1;
           state.totalQuantity++;
-          state.totalPrice += existingItem.price;
         } else if (type === "decrease" && existingItem.quantity > 1) {
           existingItem.quantity -= 1;
           state.totalQuantity--;
-          state.totalPrice -= existingItem.price;
         } else {
           state.items = state.items.filter((item) => item.id !== id);
           state.totalQuantity--;
-          state.totalPrice -= existingItem.price;
         }
       }
     },
@@ -67,7 +61,6 @@ const cartSlice = createSlice({
     clearCart(state) {
       state.items = [];
       state.totalQuantity = 0;
-      state.totalPrice = 0;
     },
   },
 });

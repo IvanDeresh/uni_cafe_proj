@@ -59,32 +59,34 @@ const TheFooter = () => {
                 +380 000 00 0000
               </span>
             </li>
-            <li>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                className="hover:opacity-75"
-              >
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  className="w-10 h-10 inline-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://web.telegram.org/k/"
-                target="_blank"
-                className="hover:opacity-75"
-              >
-                <img
-                  src={telegram}
-                  alt="Telegram"
-                  className="w-10 h-10 inline-block"
-                />
-              </a>
-            </li>
+            <div className="flex items-center gap-4">
+              <li>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  className="hover:opacity-75"
+                >
+                  <img
+                    src={instagram}
+                    alt="Instagram"
+                    className="w-10 h-10 inline-block"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://web.telegram.org/k/"
+                  target="_blank"
+                  className="hover:opacity-75"
+                >
+                  <img
+                    src={telegram}
+                    alt="Telegram"
+                    className="w-10 h-10 inline-block"
+                  />
+                </a>
+              </li>
+            </div>
           </ul>
         </div>
 

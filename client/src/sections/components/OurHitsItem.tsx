@@ -1,4 +1,6 @@
-import { OurHitsItemType } from "../../types/Props";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/slices/cartSlice";
+import { Hit } from "../../types/Constant";
 
 const OurHitsItem = ({
   id,
@@ -6,10 +8,16 @@ const OurHitsItem = ({
   name,
   price,
   description,
-}: OurHitsItemType) => {
+  quantity,
+  categories,
+}: Hit) => {
+  const dispatch = useDispatch();
+  const addToCart = (item: Hit) => {
+    dispatch(addItem(item));
+  };
   return (
     <li
-      className="w-80 min-h-96 flex cursor-pointer hover:scale-105 transition-all duration-300 flex-col justify-between bg-white shadow-md rounded-xl overflow-hidden"
+      className="w-80 min-h-96 flex cursor-pointer hover:scale-95 transition-all duration-300 flex-col justify-between bg-white shadow-md rounded-xl overflow-hidden"
       key={id}
     >
       <img className="w-full h-60 object-cover" src={image} alt={name} />
@@ -20,7 +28,25 @@ const OurHitsItem = ({
             ${price.toFixed(2)}
           </span>
         </div>
-        <p className="text-gray-600 text-sm">{description}</p>
+        <div className="flex items-center">
+          <p className="text-gray-600 text-sm">{description}</p>
+          <button
+            onClick={() =>
+              addToCart({
+                id,
+                image,
+                name,
+                description,
+                price,
+                quantity,
+                categories,
+              })
+            }
+            className="min-w-8 min-h-8 cursor-pointer hover:bg-green-400 transition-all text-lg font-bold active:text-xl active:bg-green-600 active:scale-90 bg-green-500 rounded-full text-white"
+          >
+            +
+          </button>
+        </div>
       </div>
     </li>
   );

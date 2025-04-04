@@ -19,12 +19,12 @@ const Subscribe = () => {
             placeholder="Subscribe here for benefits"
             value={email}
             required
-            className="w-72 h-10 rounded-md outline-none border-2 border-green-500 pl-4 text-green-500"
+            className="w-72 h-10 rounded-md outline-none border-2  border-green-500 pl-4 text-green-500"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Button
             label="subscribe"
-            styles="w-28 h-10 border border-b-2 border-green-500 rounded-md text-white bg-green-400"
+            styles="bg-[#30b477] text-white py-1 px-6 rounded-lg border border-b-2 border-green-600 hover:border-green-700 active:scale-95 hover:bg-[#1f9960] transition duration-300"
             type="submit"
           />
         </form>
