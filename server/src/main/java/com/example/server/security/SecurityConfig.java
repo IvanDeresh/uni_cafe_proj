@@ -18,7 +18,7 @@ public class SecurityConfig
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // Вимикаємо авторизацію
+   
         http
             .authorizeRequests()
                 .requestMatchers("/**").permitAll()  // Використовуємо requestMatchers замість antMatchers

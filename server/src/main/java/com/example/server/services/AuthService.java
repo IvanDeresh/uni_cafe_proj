@@ -21,9 +21,8 @@ public class AuthService {
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
-    // Логін користувача
     public Object login(User user) {
-        User foundUser = userRepository.findByUsername(user.getUsername());
+        User foundUser = userRepository.findByEmail(user.getEmail());
         if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
             String token = jwtTokenUtil.generateToken(foundUser.getUsername());
             return "Bearer " + token;
@@ -31,9 +30,8 @@ public class AuthService {
         return "Invalid credentials";
     }
 
-    // Реєстрація користувача
     public String register(User user) {
-        if (userRepository.findByUsername(user.getUsername()) != null) {
+        if (userRepository.findByEmail(user.getEmail()) != null) {
             return "User already exists";
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));

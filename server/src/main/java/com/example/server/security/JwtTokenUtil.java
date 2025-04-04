@@ -18,7 +18,7 @@ public class JwtTokenUtil {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // токен дійсний 1 годину
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000)) 
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
