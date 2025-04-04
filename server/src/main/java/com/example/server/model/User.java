@@ -1,23 +1,26 @@
 package com.example.server.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "users")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Document(collection = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(nullable = false, unique = true)
+    private String id;
     private String username;
-    
-    @Column(nullable = false)
+    private String email;
     private String password;
-}
 
+    public String getUsername(){
+        return this.username;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    public String getEmail(){
+        return this.email;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+}

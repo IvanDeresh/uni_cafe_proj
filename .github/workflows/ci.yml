@@ -1,0 +1,96 @@
+name: React + Spring Boot CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-frontend:
+    name: Build React App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Run tests
+        run: |
+          cd frontend
+          npm test
+
+      - name: Build React
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Upload React Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend/build
+
+  build-backend:
+    name: Build Spring Boot App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Build Spring Boot App
+        run: |
+          cd backend
+          ./mvnw clean package
+
+      - name: Upload Backend JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-jar
+          path: backend/target/*.jar
+
+  deploy:
+    name: Deploy to Server
+    needs: [build-frontend, build-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Backend JAR
+        uses: actions/download-artifact@v3
+        with:
+          name: backend-jar
+          path: backend-deploy
+
+      - name: Download Frontend Build
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend-deploy
+
+      - name: Deploy to Server (SSH)
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /home/user/my-project
+            rm -rf frontend
+            mv frontend-deploy frontend
+            systemctl restart my-backend-app
