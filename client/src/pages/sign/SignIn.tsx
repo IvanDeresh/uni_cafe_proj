@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { LoginResponse } from "../../types/Modals";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -11,13 +12,18 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post<LoginResponse>(
+        "http://localhost:8080/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      console.log(response.data);
       setEmail("");
       setPassword("");
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
     } catch (e) {
       console.error(e);
     }
