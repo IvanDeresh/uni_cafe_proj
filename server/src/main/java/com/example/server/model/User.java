@@ -59,4 +59,7 @@ public class User {
     public void setPassword(String password){
         this.password = password;
     }
+    public void addOrder(Order order){
+       this.orders.add(order);
+    }
 }
