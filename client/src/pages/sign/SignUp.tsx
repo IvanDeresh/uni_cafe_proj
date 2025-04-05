@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { LoginResponse } from "../../types/Modals";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -11,18 +12,26 @@ const SignUp = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/register", {
-        email,
-        username,
-        password,
-      });
+      const response = await axios.post<LoginResponse>(
+        "http://localhost:8080/auth/register",
+        {
+          email,
+          username,
+          password,
+        }
+      );
+      console.log("Response:", response);
       setEmail("");
       setUserName("");
       setPassword("");
-      console.log(response);
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
     } catch (e) {
-      console.error(e);
+      if (axios.isAxiosError(e)) {
+        console.error("AxiosError:", e.response?.data || e.message);
+      } else {
+        console.error("Unexpected Error:", e);
+      }
     }
   }
   return (

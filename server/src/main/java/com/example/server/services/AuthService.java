@@ -1,5 +1,7 @@
 package com.example.server.services;
 
+import com.example.server.dto.LoginResponse;
+import com.example.server.model.Role;
 import com.example.server.model.User;
 import com.example.server.repository.UserRepository;
 import com.example.server.security.JwtTokenUtil;
@@ -21,21 +23,33 @@ public class AuthService {
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
-    public Object login(User user) {
+    public LoginResponse login(User user) {
         User foundUser = userRepository.findByEmail(user.getEmail());
         if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
             String token = jwtTokenUtil.generateToken(foundUser.getUsername());
-            return "Bearer " + token;
+            return new LoginResponse(foundUser, token);
         }
-        return "Invalid credentials";
+        return null;
     }
+    
 
-    public String register(User user) {
+
+    public LoginResponse register(User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            return "User already exists";
+        
+            return null; 
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return "User registered successfully";
+    
+        user.setRole(Role.USER);  
+        user.setCreatedAt();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));  
+        userRepository.save(user);  
+    
+        String token = jwtTokenUtil.generateToken(user.getUsername()); 
+        return new LoginResponse(user, token); 
     }
+    
+    
+    
+    
 }
