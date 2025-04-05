@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { LoginResponse } from "../../types/Modals";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -11,25 +12,33 @@ const SignUp = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/register", {
-        email,
-        username,
-        password,
-      });
+      const response = await axios.post<LoginResponse>(
+        "http://localhost:8080/auth/register",
+        {
+          email,
+          username,
+          password,
+        }
+      );
+      console.log("Response:", response);
       setEmail("");
       setUserName("");
       setPassword("");
-      console.log(response);
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
     } catch (e) {
-      console.error(e);
+      if (axios.isAxiosError(e)) {
+        console.error("AxiosError:", e.response?.data || e.message);
+      } else {
+        console.error("Unexpected Error:", e);
+      }
     }
   }
   return (
     <div className="h-[70vh] flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="border-2 border-green-400 rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[30rem]"
+        className="border-2 border-green-400 max-[25rem]:w-auto rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[30rem]"
         action=""
       >
         <h2 className="text-3xl text-green-400">Sign up</h2>

@@ -19,9 +19,9 @@ import {
   sandwich,
   top,
 } from "../assets/img";
-import { Blog, Gallery, Hit } from "../types/Constant";
+import { BlogType, Gallery, Hit } from "../types/Constant";
 
-export const blogs: Blog[] = [
+export const blogs: BlogType[] = [
   {
     icon: coffee,
     title: "The Art of Brewing Coffee",

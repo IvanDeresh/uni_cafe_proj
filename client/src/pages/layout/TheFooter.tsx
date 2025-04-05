@@ -20,14 +20,19 @@ const TheFooter = () => {
 
   return (
     <footer className="bg-[#29bd78] text-white pt-10 pb-6">
-      <div className="max-w-screen-xl mx-auto px-6 md:flex md:justify-between">
-        <div className="flex flex-col gap-5 md:w-2/5">
-          <img src={main_icon} alt="logo" className="w-14 h-14 mb-4" />
+      <div className="max-w-screen-xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 min-[56.25rem]:grid-cols-4 gap-8">
+        <div className="flex flex-col gap-5">
+          <Link to="/">
+            <img src={main_icon} alt="logo" className="w-14 h-14 mb-4" />
+          </Link>
           <p className="text-lg">Join our newsletter for the latest updates!</p>
-          <form onSubmit={handleSubmit} className="flex items-center gap-3">
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-start gap-3 max-xl:flex-col md:items-start"
+          >
             <input
               placeholder="Enter your email"
-              className="w-64 p-2 rounded-sm outline-none border-2 border-[#25bd76] bg-[#3be797] placeholder-white"
+              className="w-64 p-2 rounded-sm sm:w-[80%] outline-none border-2 border-[#25bd76] bg-[#3be797] placeholder-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -41,7 +46,7 @@ const TheFooter = () => {
           </form>
         </div>
 
-        <div className="flex flex-col gap-5 md:w-1/5 mt-8 md:mt-0">
+        <div className="flex flex-col gap-5">
           <h2 className="text-2xl font-bold">Contact Us</h2>
           <ul className="text-md flex flex-col gap-2">
             <li className="flex gap-6">
@@ -90,7 +95,7 @@ const TheFooter = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-5 md:w-1/5 mt-8 md:mt-0">
+        <div className="flex flex-col gap-5">
           <h2 className="text-2xl font-bold">Quick Links</h2>
           <ul className="text-md flex flex-col gap-2">
             <li>
@@ -116,7 +121,7 @@ const TheFooter = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-5 md:w-1/5 mt-8 md:mt-0">
+        <div className="flex flex-col gap-5">
           <h2 className="text-2xl font-bold">Policies</h2>
           <ul className="text-md flex flex-col gap-2">
             <li>

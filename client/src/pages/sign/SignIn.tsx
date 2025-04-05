@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { LoginResponse } from "../../types/Modals";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -11,13 +12,20 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post<LoginResponse>(
+        "http://localhost:8080/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      console.log(response.data.user.orders);
+      console.log(response.data);
       setEmail("");
       setPassword("");
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("orders", JSON.stringify(response.data.user.orders));
+      localStorage.setItem("user", JSON.stringify(response.data.user));
     } catch (e) {
       console.error(e);
     }
@@ -27,7 +35,7 @@ const SignIn = () => {
     <div className="h-[60vh] flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="border-2 border-green-400 rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[25rem]"
+        className="border-2 border-green-400 max-[25rem]:w-auto rounded-3xl border-b-4 border-b-green-500 w-sm p-5 flex flex-col items-center justify-between h-[25rem]"
       >
         <h2 className="text-3xl text-green-400">Sign in</h2>
         <div className="flex flex-col gap-8">

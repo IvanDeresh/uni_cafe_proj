@@ -12,11 +12,11 @@ const OurHits = () => {
     }, 1000);
   }, []);
   return (
-    <section className="mt-36 flex flex-col justify-center items-center">
+    <section className="mt-36 flex flex-col justify-center items-center px-4">
       <h2 className="text-green-500 text-3xl font-bold mb-10">Our Hits!</h2>
 
       <ul
-        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 transition-all duration-500 `}
+        className={`flex flex-wrap justify-center items-center gap-8 transition-all duration-500 `}
       >
         {loading
           ? Array.from({ length: 4 }).map((_, index) => (

@@ -1,4 +1,4 @@
-export type Blog = {
+export type BlogType = {
   icon: string;
   title: string;
   desc: string;
