@@ -26,8 +26,6 @@ const CartModalWindow = ({ setModalOpen, totalPrice }: CartModalWindowType) => {
   }));
 
   async function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-
     try {
       const response = await axios.post<User>(
         `http://localhost:8080/orders/${user?.id}`,

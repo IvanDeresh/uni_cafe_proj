@@ -3,6 +3,7 @@ package com.example.server.dto;
 import com.example.server.model.Order;
 import com.example.server.model.User;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDTO {
@@ -11,7 +12,7 @@ public class UserDTO {
     private String email;
     private String role;
     private LocalDateTime createdAt;
-    private List<Order> orders;
+ private List<Order> orders = new ArrayList<>();
 
     public UserDTO() {}
 

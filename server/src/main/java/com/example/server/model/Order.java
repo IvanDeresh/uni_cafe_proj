@@ -10,6 +10,7 @@ public class Order {
     private LocalDateTime createdAt;
     private List<OrderItem> items;
     private double totalPrice;
+    private int orderId;
     public double getTotalPrice() {
         return totalPrice;
     }
