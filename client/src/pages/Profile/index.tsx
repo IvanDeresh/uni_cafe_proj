@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { convertTime } from "../../helpers/utils/func";
 import { User, Order } from "../../types/Modals";
+import OrdersItem from "./components/OrdersItem";
 
 const Profile = () => {
   const user: User | null = JSON.parse(localStorage.getItem("user") || "null");
@@ -15,8 +16,8 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-[70vh] flex justify-around py-14">
-      <div className="border-r-2 w-2/5 border-green-500 p-5 flex flex-col items-center">
+    <div className="min-h-[70vh] flex md:justify-around max-md:flex-col max-md:items-center py-14">
+      <div className="md:border-r-2 max-md:border-b-2 w-2/5 border-[#29bd78] p-5 flex flex-col items-center">
         <h3 className="text-green-500 text-2xl font-bold">Profile</h3>
         <ul className="mt-4 flex flex-col gap-6">
           <li className="flex gap-4">
@@ -42,12 +43,16 @@ const Profile = () => {
         </ul>
       </div>
 
-      <div className="w-3/5 flex flex-col items-center">
+      <div className="w-3/5 flex flex-col items-center max-md:mt-10">
         <h3 className="text-green-500 text-2xl font-bold">Categories</h3>
         <ul className="w-full mt-6">
           <li>
             <button
-              className="w-full text-left text-green-600 font-semibold border-b py-2 hover:bg-green-50"
+              className={`w-full text-left transition-all duration-200 cursor-pointer font-semibold border-b py-2 ${
+                openSection === "orders"
+                  ? "text-green-600 hover:bg-green-50"
+                  : "text-white bg-[#29bd78] hover:bg-[#76caa3]"
+              } `}
               onClick={() => toggleSection("orders")}
             >
               ▶ Orders
@@ -56,12 +61,12 @@ const Profile = () => {
               <div className="pl-4 mt-2 text-green-700 text-sm flex flex-col gap-2">
                 {orders?.length ? (
                   user?.orders.map((order: Order, index: number) => (
-                    <div key={index} className="border-b pb-2">
-                      <p>🧾 Order ID: {order.orderId}</p>
-                      <p>📅 Date: {convertTime(new Date(order.createdAt))}</p>
-                      <p>💵 Total: ${order.totalPrice.toFixed(2)}</p>
-                      <p>📦 Items: {order.items.length}</p>
-                    </div>
+                    <OrdersItem
+                      index={index}
+                      {...order}
+                      orderId={order.orderId || Math.random() * 100}
+                      length={order.items.length}
+                    />
                   ))
                 ) : (
                   <p>No orders found</p>
@@ -72,7 +77,11 @@ const Profile = () => {
 
           <li>
             <button
-              className="w-full text-left text-green-600 font-semibold border-b py-2 hover:bg-green-50"
+              className={`w-full text-left transition-all duration-200 cursor-pointer font-semibold border-b py-2 ${
+                openSection === "favorites"
+                  ? "text-green-600 hover:bg-green-50"
+                  : "text-white bg-[#29bd78] hover:bg-[#76caa3]"
+              } `}
               onClick={() => toggleSection("favorites")}
             >
               ▶ Favorites

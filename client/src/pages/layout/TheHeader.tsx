@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { cart, main_icon } from "../../assets/img";
 import { Menu, X } from "lucide-react";
+import { User } from "../../types/Modals";
 
 const TheHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const user: User | null = JSON.parse(localStorage.getItem("user") || "null");
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -27,7 +29,7 @@ const TheHeader = () => {
 
   return (
     <header className="font-nunito max-md:justify-between max-md:pr-8 text-green-400 text-md font-medium flex items-center py-5 px-2.5 relative">
-      <div className="w-1/5 flex justify-center">
+      <div className="w-1/5 flex justify-start">
         <Link to="/">
           <img src={main_icon} alt="logo" className="w-10 h-10" />
         </Link>
@@ -49,12 +51,21 @@ const TheHeader = () => {
         </ul>
       </nav>
       <div className="w-1/5 flex justify-center items-center gap-8">
-        <Link
-          className="w-36 h-12 border-b-2 max-md:hidden text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center"
-          to="/sign-in"
-        >
-          Sign in
-        </Link>
+        {user ? (
+          <Link
+            className="w-36 h-12 border-b-2 max-md:hidden text-white text-lg border-green-600 px-2 bg-green-400 rounded-2xl flex justify-center items-center"
+            to="/profile"
+          >
+            {user.name}
+          </Link>
+        ) : (
+          <Link
+            className="w-36 h-12 border-b-2 max-md:hidden text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center"
+            to="/sign-in"
+          >
+            Sign in
+          </Link>
+        )}
         <Link to="/cart">
           <img
             className="min-w-10 min-h-10 w-10 h-10 max-md:min-w-8 max-md:min-h-8 max-md:w-8 max-md:h-8"
@@ -70,7 +81,6 @@ const TheHeader = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div
           ref={menuRef}
@@ -98,13 +108,21 @@ const TheHeader = () => {
               </Link>
             </li>
           </ul>
-          <Link
-            className="w-36 h-12 border-b-2 text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center mt-4"
-            to="/sign-in"
-            onClick={() => setMenuOpen(false)}
-          >
-            Sign in
-          </Link>
+          {user ? (
+            <Link
+              className="w-36 h-12 border-b-2 md:hidden text-white text-lg border-green-600 px-2 bg-green-400 rounded-2xl flex justify-center items-center"
+              to="/profile"
+            >
+              {user.name}
+            </Link>
+          ) : (
+            <Link
+              className="w-36 h-12 border-b-2 md:hidden text-white text-xl border-green-600 bg-green-400 rounded-2xl flex justify-center items-center"
+              to="/sign-in"
+            >
+              Sign in
+            </Link>
+          )}
         </div>
       )}
     </header>
