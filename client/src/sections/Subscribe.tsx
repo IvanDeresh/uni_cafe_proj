@@ -20,7 +20,7 @@ const Subscribe = () => {
           <input
             type="email"
             name="subscribe_email"
-            placeholder="Subscribe here for benefits"
+            placeholder="Email"
             value={email}
             required
             className="w-72 h-10 rounded-md outline-none border-2 max-sm:w-max max-sm:pr-4 border-green-500 pl-4 text-green-500"
