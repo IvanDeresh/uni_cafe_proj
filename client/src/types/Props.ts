@@ -1,3 +1,4 @@
+import { Dispatch } from "@reduxjs/toolkit";
 import { Hit } from "./Constant";
 
 export type ButtonProps = {
@@ -22,3 +23,17 @@ export interface MenuItemProps {
   setHoveredItemId: React.Dispatch<React.SetStateAction<number | null>>;
   addToCart: (item: Hit) => void;
 }
+
+export type CartItemProps = {
+  dispatch: Dispatch;
+  image: string;
+  name: string;
+  id: number;
+  description: string;
+  quantity: number;
+  price: number;
+};
+
+export type CartModalWindowType = {
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};

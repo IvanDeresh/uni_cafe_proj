@@ -7,7 +7,7 @@ import Gallery from "./pages/Gallery";
 import AboutUs from "./pages/AboutUs";
 import SignIn from "./pages/sign/SignIn";
 import SignUp from "./pages/sign/SignUp";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart/index";
 import NotFound from "./pages/NotFound";
 
 function App() {
