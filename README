@@ -1,0 +1,30 @@
+README: Quick Setup Guide for Client and Server
+
+Install dependencies:
+
+npm install
+yarn install
+
+
+Run the client:
+
+npm run dev
+yarn dev
+
+2. Server (Spring Boot with MongoDB)
+Prerequisites:
+
+Java 17 or higher
+
+MongoDB running locally or in the cloud
+Configure MongoDB URI in application.properties:
+
+spring.data.mongodb.uri=mongodb://localhost:27017/your-database
+
+Run the server:
+mvn clean install
+mvn spring-boot:run
+
+Server URL: http://localhost:8080
+
+Now both the client and server are running!
