@@ -21,7 +21,7 @@ public class OrderService {
 
     public User addOrderToUser(String userId, Order order) {
         Optional<User> optionalUser = userRepository.findById(userId);
-        
+        order.setCreatedAt();
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             user.addOrder(order);

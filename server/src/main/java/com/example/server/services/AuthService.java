@@ -27,6 +27,7 @@ public class AuthService {
         User foundUser = userRepository.findByEmail(user.getEmail());
         if (foundUser != null && passwordEncoder.matches(user.getPassword(), foundUser.getPassword())) {
             String token = jwtTokenUtil.generateToken(foundUser.getUsername());
+            
             return new LoginResponse(foundUser, token);
         }
         return null;

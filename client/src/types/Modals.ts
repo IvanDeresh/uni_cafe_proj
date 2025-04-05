@@ -11,10 +11,11 @@ export interface OrderItem {
 }
 
 export interface Order {
-  id: string;
   createdAt: string;
   items: OrderItem[];
   totalPrice: number;
+  quantity: number;
+  orderId: null | number;
 }
 
 export interface User {

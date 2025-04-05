@@ -35,5 +35,14 @@ export type CartItemProps = {
 };
 
 export type CartModalWindowType = {
+  totalPrice: number;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type OrdersItemType = {
+  orderId: number;
+  index: number;
+  createdAt: string;
+  totalPrice: number;
+  length: number;
 };

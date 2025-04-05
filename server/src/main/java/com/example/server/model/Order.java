@@ -2,12 +2,15 @@ package com.example.server.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.data.annotation.Id;
 
 public class Order {
+    @Id
     private String id;
     private LocalDateTime createdAt;
     private List<OrderItem> items;
     private double totalPrice;
+    private int orderId;
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -48,7 +51,7 @@ public class Order {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedAt() {
+        this.createdAt = LocalDateTime.now();
     }
 }

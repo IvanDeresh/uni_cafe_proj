@@ -5,10 +5,11 @@ import Menu from "./pages/Menu/index";
 import LoyaltyProgram from "./pages/LoyaltyProgram";
 import Gallery from "./pages/Gallery";
 import AboutUs from "./pages/AboutUs";
-import SignIn from "./pages/sign/SignIn";
-import SignUp from "./pages/sign/SignUp";
+import SignIn from "./pages/Sign/SignIn";
+import SignUp from "./pages/Sign/SignUp";
 import Cart from "./pages/Cart/index";
 import NotFound from "./pages/NotFound";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

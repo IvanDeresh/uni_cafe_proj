@@ -19,10 +19,12 @@ const SignIn = () => {
           password,
         }
       );
+      console.log(response.data.user.orders);
       console.log(response.data);
       setEmail("");
       setPassword("");
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("orders", JSON.stringify(response.data.user.orders));
       localStorage.setItem("user", JSON.stringify(response.data.user));
     } catch (e) {
       console.error(e);
