@@ -35,5 +35,6 @@ export type CartItemProps = {
 };
 
 export type CartModalWindowType = {
+  totalPrice: number;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };

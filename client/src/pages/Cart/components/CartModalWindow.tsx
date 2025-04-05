@@ -2,15 +2,46 @@ import { useState } from "react";
 import { CartModalWindowType } from "../../../types/Props";
 import { X } from "lucide-react";
 import Button from "../../../components/Button";
+import { User } from "../../../types/Modals";
+import { useSelector } from "react-redux";
+import { Hit } from "../../../types/Constant";
+import axios from "axios";
 
-const CartModalWindow = ({ setModalOpen }: CartModalWindowType) => {
-  const EMAIL = "deresh@gmail.com";
-  const NAME = "Jane Doe";
-  const ADDRESS = "New York";
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+const CartModalWindow = ({ setModalOpen, totalPrice }: CartModalWindowType) => {
+  const user: User | null = JSON.parse(localStorage.getItem("user") || "null");
+
+  const [email, setEmail] = useState(user?.email);
+  const [name, setName] = useState(user?.name);
   const [address, setAdrress] = useState("");
   const [method, setMethod] = useState("card");
+  const cartItems = useSelector(
+    (state: { cart: { items: Hit[]; totalPrice: number } }) => state.cart
+  );
+  const formattedItems = cartItems.items.map((item) => ({
+    ...item,
+    categories: item.categories.map((cat) => ({
+      ...cat,
+      title: cat.title.replace(" ", "_").toUpperCase(),
+    })),
+  }));
+
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post<User>(
+        `http://localhost:8080/orders/${user?.id}`,
+        { items: formattedItems, totalPrice }
+      );
+      console.log("Response:", response);
+    } catch (e) {
+      if (axios.isAxiosError(e)) {
+        console.error("AxiosError:", e.response?.data || e.message);
+      } else {
+        console.error("Unexpected Error:", e);
+      }
+    }
+  }
 
   return (
     <div className="rounded-3xl flex flex-col relative items-center p-10 w-[40vw] h-[50vh] bg-white max-[42rem]:w-[90vw] max-[42rem]:h-auto">
@@ -21,7 +52,11 @@ const CartModalWindow = ({ setModalOpen }: CartModalWindowType) => {
         <X size={30} />
       </button>
       <h3 className="uppercase text-2xl text-green-500">Summation</h3>
-      <form action="" className="w-full mt-8 gap-4 flex flex-col items-center">
+      <form
+        action=""
+        onSubmit={handleSubmit}
+        className="w-full mt-8 gap-4 flex flex-col items-center"
+      >
         <div className="flex gap-8 w-8/10 max-[42rem]:flex-col">
           <div className="flex flex-col w-full">
             <label htmlFor="name_modal" className="text-green-500 font-bold">
@@ -32,7 +67,7 @@ const CartModalWindow = ({ setModalOpen }: CartModalWindowType) => {
               id="name_modal"
               placeholder="Jane Doe"
               className="w-full border-green-500 border outline-none text-green-500 py-2 pl-2"
-              value={name === "" ? NAME : name}
+              value={name}
               onChange={(e) => setName(e.target.value)}
               name="name"
             />
@@ -46,7 +81,7 @@ const CartModalWindow = ({ setModalOpen }: CartModalWindowType) => {
               id="email_modal"
               placeholder="example@gmail.com"
               className="w-full border-green-500 border outline-none text-green-500 py-2 pl-2"
-              value={email === "" ? EMAIL : email}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               name="email"
             />
@@ -61,7 +96,7 @@ const CartModalWindow = ({ setModalOpen }: CartModalWindowType) => {
             id="address_modal"
             placeholder="New York"
             className="w-full border-green-500 border outline-none text-green-500 py-2 pl-2"
-            value={address === "" ? ADDRESS : address}
+            value={address}
             onChange={(e) => setAdrress(e.target.value)}
             name="address"
           />

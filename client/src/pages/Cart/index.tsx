@@ -22,9 +22,9 @@ const Cart = () => {
     setModalOpen(false);
   }
 
-  const submitForm = () => {
-    //;
-  };
+  const totalPrice = cartItems.items
+    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+    .toFixed(2);
 
   return (
     <div className="min-h-[70vh] mb-40 mt-20 flex flex-col items-center w-full">
@@ -48,10 +48,7 @@ const Cart = () => {
         </div>
         <div className=" max-[42rem]:mb-10 max-[42rem]:border-b-4 max-[42rem]:border-green-500 max-[42rem]:w-full max-[42rem]:pb-10 max-[42rem]:flex max-[42rem]:flex-col max-[42rem]:justify-center max-[42rem]:items-center">
           <p className="text-xl uppercase text-green-500">
-            Total Price: $
-            {cartItems.items
-              .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-              .toFixed(2)}
+            Total Price: ${totalPrice}
           </p>
           <div className="flex gap-4 mt-8 items-center">
             <button
@@ -76,7 +73,10 @@ const Cart = () => {
         } w-full h-[100%] bg-black/40 fixed top-0`}
       >
         <div onClick={(e) => e.stopPropagation()}>
-          <CartModalWindow setModalOpen={setModalOpen} />
+          <CartModalWindow
+            totalPrice={Number(totalPrice)}
+            setModalOpen={setModalOpen}
+          />
         </div>
       </div>
     </div>
