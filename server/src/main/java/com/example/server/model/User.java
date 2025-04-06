@@ -22,6 +22,10 @@ public class User {
         return this.username;
     }
    
+    public void setUsername(String username){
+         this.username = username;
+    }
+
     public List<Order> getOrders(){
         return this.orders;
     }
@@ -30,6 +34,10 @@ public class User {
         return this.id;
     } 
     
+    public void setId(String id){
+         this.id=id;
+    } 
+
     public String getRole() {
         return (this.role != null) ? this.role.name() : "USER";  
     }
@@ -55,6 +63,9 @@ public class User {
     }
     public String getEmail(){
         return this.email;
+    }
+    public void setEmail(String email){
+         this.email=email;
     }
     public void setPassword(String password){
         this.password = password;
