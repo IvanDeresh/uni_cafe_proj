@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LoginResponse } from "../../types/Modals";
-
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUserName] = useState("");
@@ -20,12 +20,12 @@ const SignUp = () => {
           password,
         }
       );
-      console.log("Response:", response);
       setEmail("");
       setUserName("");
       setPassword("");
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      navigate("/profile", { replace: true });
     } catch (e) {
       if (axios.isAxiosError(e)) {
         console.error("AxiosError:", e.response?.data || e.message);

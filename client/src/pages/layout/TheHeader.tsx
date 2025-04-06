@@ -7,8 +7,9 @@ import { User } from "../../types/Modals";
 const TheHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const user: User | null = JSON.parse(localStorage.getItem("user") || "null");
-
+  const [user, setUser] = useState<User | null>(
+    JSON.parse(localStorage.getItem("user") || "null")
+  );
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -26,6 +27,21 @@ const TheHeader = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const syncUser = () => {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser ? JSON.parse(storedUser) : null);
+    };
+
+    window.addEventListener("storage", syncUser);
+    window.addEventListener("user-updated", syncUser);
+
+    return () => {
+      window.removeEventListener("storage", syncUser);
+      window.removeEventListener("user-updated", syncUser);
+    };
+  }, []);
 
   return (
     <header className="font-nunito max-md:justify-between max-md:pr-8 text-green-400 text-md font-medium flex items-center py-5 px-2.5 relative">

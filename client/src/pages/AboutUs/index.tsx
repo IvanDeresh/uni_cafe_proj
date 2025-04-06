@@ -1,4 +1,4 @@
-import { cappucino_hit, cheescake_hit } from "../assets/img";
+import { cappucino_hit, cheescake_hit } from "../../assets/img";
 
 const AboutUs = () => {
   return (

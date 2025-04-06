@@ -1,6 +1,6 @@
 import React from "react";
 import { OrdersItemType } from "../../../types/Props";
-import { convertTime } from "../../../helpers/utils/func";
+import { convertTime } from "../../../helpers/utils/convertTime";
 
 const OrdersItem: React.FC<OrdersItemType> = ({
   length,

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LoginResponse } from "../../types/Modals";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
 
@@ -19,13 +19,12 @@ const SignIn = () => {
           password,
         }
       );
-      console.log(response.data.user.orders);
-      console.log(response.data);
       setEmail("");
       setPassword("");
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("orders", JSON.stringify(response.data.user.orders));
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      navigate("/profile", { replace: true });
     } catch (e) {
       console.error(e);
     }

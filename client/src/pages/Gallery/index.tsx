@@ -1,4 +1,4 @@
-import { gallery } from "../constant";
+import { gallery } from "../../constant";
 
 const Gallery = () => {
   return (

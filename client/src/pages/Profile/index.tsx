@@ -1,19 +1,45 @@
-import { useState } from "react";
-import { convertTime } from "../../helpers/utils/func";
+import { useEffect, useState } from "react";
+import { convertTime } from "../../helpers/utils/convertTime";
 import { User, Order } from "../../types/Modals";
 import OrdersItem from "./components/OrdersItem";
+import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const user: User | null = JSON.parse(localStorage.getItem("user") || "null");
+  const [user, setUser] = useState<User | null>(
+    JSON.parse(localStorage.getItem("user") || "null")
+  );
   const orders: Order[] | null = JSON.parse(
     localStorage.getItem("orders") || "null"
   );
-
+  const navigate = useNavigate();
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (section: string): void => {
     setOpenSection((prev) => (prev === section ? null : section));
   };
+
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("orders");
+    navigate("/sign-in", { replace: true });
+  }
+
+  useEffect(() => {
+    const syncUser = () => {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser ? JSON.parse(storedUser) : null);
+    };
+
+    window.addEventListener("storage", syncUser);
+    window.addEventListener("user-updated", syncUser);
+
+    return () => {
+      window.removeEventListener("storage", syncUser);
+      window.removeEventListener("user-updated", syncUser);
+    };
+  }, []);
 
   return (
     <div className="min-h-[70vh] flex md:justify-around max-md:flex-col max-md:items-center py-14">
@@ -39,6 +65,13 @@ const Profile = () => {
             <span className="text-green-500">
               {convertTime(new Date(user?.createdAt || ""))}
             </span>
+          </li>
+          <li className="flex gap-4" onClick={logout}>
+            <Button
+              type="button"
+              styles="px-4 cursor-pointer py-2 w-full bg-green-500 hover:bg-green-400 active:scale-95 active:bg-green-600 transition-all duration-300 text-white font-bold rounded-xl "
+              label="Logout"
+            />
           </li>
         </ul>
       </div>
