@@ -46,3 +46,11 @@ export type OrdersItemType = {
   totalPrice: number;
   length: number;
 };
+
+export type LoyaltyProgramItemType = {
+  id: number;
+  description: string;
+  title: string;
+  date: string;
+  type: string;
+};

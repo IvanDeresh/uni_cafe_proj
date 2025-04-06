@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { blogs } from "../constant";
 import BlogItem from "./components/BlogItem";
 import ItemSkeleton from "../helpers/skeletons/ItemSkeleton";
+import React from "react";
 
 const Blog = () => {
   const [currentIndex, setCurrentIndex] = useState(
@@ -84,4 +85,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default React.memo(Blog);
